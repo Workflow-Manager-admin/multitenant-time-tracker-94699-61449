@@ -1,5 +1,9 @@
 import json
 import os
+import sys
+
+# Add the backend directory to Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 from src.api.main import app
 
@@ -13,3 +17,5 @@ output_path = os.path.join(output_dir, "openapi.json")
 
 with open(output_path, "w") as f:
     json.dump(openapi_schema, f, indent=2)
+
+print(f"OpenAPI schema generated at {output_path}")
